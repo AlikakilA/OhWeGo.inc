@@ -3,8 +3,6 @@ module OhWeGo.inc
 go 1.18
 
 require (
-	github.com/gin-gonic/contrib v0.0.0-20240508051311-c1c6bf0061b0
-	github.com/gin-gonic/gin v1.10.0
 )
 
 require (
