@@ -5,4 +5,14 @@ CREATE TABLE IF NOT EXISTS messages (
     content TEXT NOT NULL
 );
 
-INSERT INTO messages (content) VALUES ('Test de requetes GORM');
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    username TEXT NOT NULL,
+    mail TEXT NOT NULL
+);
+
+
+
+INSERT INTO messages (content) VALUES ('First');
+INSERT INTO messages (content) VALUES ('Second');
+INSERT INTO users (username,mail) VALUES ('first','first@mail.com');
