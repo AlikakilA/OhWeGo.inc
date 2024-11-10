@@ -3,11 +3,12 @@ package database
 import (
 	"backend/models"
 	"fmt"
+	"log"
+	"os"
+
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	"log"
-	"os"
 )
 
 var DB *gorm.DB
@@ -34,5 +35,15 @@ func InitDB() {
 		log.Fatalf("Erreur de connexion à la base de données : %v\n", err)
 	}
 
-	DB.AutoMigrate(&models.User{}, &models.Message{})
+	DB.AutoMigrate(
+		&models.User{},
+		&models.Dislike{},
+		&models.Favorites{},
+		&models.Friend{},
+		&models.Notification{},
+		&models.Profile{},
+		&models.Like{},
+		&models.Place{},
+		&models.Place_category{},
+	)
 }
