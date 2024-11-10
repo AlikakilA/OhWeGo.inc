@@ -10,6 +10,7 @@ export default function HomeScreen () {
         <View style={styles.container}>
             <Text style={styles.title}>{homescreen}</Text>
         </View>
+
     )
 }
 

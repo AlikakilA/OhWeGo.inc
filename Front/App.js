@@ -12,11 +12,10 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      // isLoggedIn est une condition qui va voir si isLoggedin est true ou false
       {isLoggedIn ? (
-        <MainTabs /> // si isLoggedIn = true
+        <MainTabs />
       ) : (
-        <AuthStack setIsLoggedIn={setIsLoggedIn} /> // si isLoggedIn = false
+        <AuthStack setIsLoggedIn={setIsLoggedIn} />
       )}
     </NavigationContainer>
   );

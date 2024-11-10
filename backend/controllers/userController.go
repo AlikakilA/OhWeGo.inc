@@ -18,6 +18,11 @@ func CreateUser(c *fiber.Ctx) error {
 		return c.Status(400).JSON(fiber.Map{"message": "Invalid input"})
 	}
 
+    fmt.Println(user)
+    if result := database.DB.Where("username = ? OR email = ?", user.Username, user.Email).First(&user); result.Error == nil {
+		return c.Status(404).JSON(fiber.Map{"message": "Username already exist"})
+	}
+
 	if result := database.DB.Create(&user); result.Error != nil {
 		return c.Status(500).JSON(fiber.Map{"message": "Could not register user"})
 	}
@@ -34,6 +39,7 @@ func GetUsers(c *fiber.Ctx) error {
 	if result := database.DB.Find(&users); result.Error != nil {
 		return c.Status(500).JSON(fiber.Map{"message": "Could not retrieve users"})
 	}
+fmt.Println(users)
 	return c.JSON(users)
 }
 
@@ -47,7 +53,7 @@ func FindUser(c *fiber.Ctx) error {
 
 	var user models.User
 	// Recherche dans la base de données l'utilisateur avec le username et le mail fournis
-	if result := database.DB.Where("username = ? AND mail = ?", input.Username, input.Mail).First(&user); result.Error != nil {
+	if result := database.DB.Where("username = ? AND email = ?", input.Username, input.Email).First(&user); result.Error != nil {
 		return c.Status(404).JSON(fiber.Map{"message": "User not found"})
 	}
     fmt.Println("passed")

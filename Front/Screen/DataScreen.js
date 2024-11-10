@@ -17,14 +17,13 @@ export default function DataScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Utilisateurs enregistrés</Text>
-      // FlatList.. simple et efficace pour boucler
       <FlatList
         data={users}
         keyExtractor={(item, index) => (item.id ? item.id.toString() : index.toString())}
         renderItem={({ item }) => (
           <View style={styles.userItem}>
-            <Text>Username: {item.Username || 'Nom non disponible'}</Text>
-            <Text>Mail: {item.Mail || 'Email non disponible'}</Text>
+            <Text>Username: {item.username || 'Nom non disponible'}</Text>
+            <Text>Email: {item.email || 'Email non disponible'}</Text>
           </View>
         )}
       />

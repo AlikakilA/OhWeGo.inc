@@ -3,7 +3,8 @@ import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 
 export default function SignupScreen({ navigation, setIsLoggedIn }) {
   const [username, setUsername] = useState('');
-  const [mail, setMail] = useState('');
+  const [email, setEmail] = useState('');
+  const [password_hash, setPassword] = useState('');
 
   //fonction SignUp pour faire la requete au serveur en envoyant un Json
   // Cela va changer avec l'ajout d'un JWT pour sécuriser la connection
@@ -13,12 +14,12 @@ export default function SignupScreen({ navigation, setIsLoggedIn }) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username, mail })
+      body: JSON.stringify({ username, email, password_hash})
     })
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-           setIsLoggedIn(true); // Met à jour l’état de connexion
+           setIsLoggedIn(true);
         } else {
           Alert.alert('Erreur', data.message || 'Erreur lors de l\'inscription');
         }
@@ -45,8 +46,14 @@ export default function SignupScreen({ navigation, setIsLoggedIn }) {
       <TextInput
         style={styles.input}
         placeholder="Email"
-        value={mail}
-        onChangeText={setMail}
+        value={email}
+        onChangeText={setEmail}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        value={password_hash}
+        onChangeText={setPassword}
       />
       <Button title="Signup" onPress={handleSignup} />
       <Button title="Login" onPress={loginRedirect} />

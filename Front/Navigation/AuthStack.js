@@ -16,12 +16,12 @@ export default function AuthStack({ setIsLoggedIn }) {
     // le screenOptions à false sert à ne pas afficher le bandeau de retour qui est là par défaut
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Login">
-        // La props sert à tcheker en continue si la variable setIsLoggedIn est false
-        // dès qu'elle passe à true on passe sur le Tab
+         {/*La props sert à tcheker en continue si la variable setIsLoggedIn est false
+         dès qu'elle passe à true on passe sur le Tab */}
         {(props) => <LoginScreen {...props} setIsLoggedIn={setIsLoggedIn} />}
       </Stack.Screen>
       <Stack.Screen name="Signup">
-        // pareil que pour login
+        {/* pareil que pour login*/}
         {(props) => <SignupScreen {...props} setIsLoggedIn={setIsLoggedIn} />}
       </Stack.Screen>
     </Stack.Navigator>

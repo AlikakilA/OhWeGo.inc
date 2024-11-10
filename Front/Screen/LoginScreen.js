@@ -3,7 +3,7 @@ import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 
 export default function LoginScreen({ navigation, setIsLoggedIn }) { // Ajouter setIsLoggedIn comme prop
     const [username, setUsername] = useState('');
-    const [mail, setMail] = useState('');
+    const [email, setEmail] = useState('');
 
     const handleLogin = () => {
       fetch('http://10.0.2.2:3001/api/login', {
@@ -11,7 +11,7 @@ export default function LoginScreen({ navigation, setIsLoggedIn }) { // Ajouter 
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username, mail })
+        body: JSON.stringify({ username, email })
       })
         .then(response => response.json())
         .then(data => {
@@ -44,9 +44,9 @@ export default function LoginScreen({ navigation, setIsLoggedIn }) { // Ajouter 
             />
             <TextInput
                 style={styles.input}
-                placeholder="Mail"
-                value={mail}
-                onChangeText={setMail}
+                placeholder="Email"
+                value={email}
+                onChangeText={setEmail}
             />
             <Button title="Log in" onPress={handleLogin} />
             <Button title="Sign Up" onPress={signupRedirect}/>
