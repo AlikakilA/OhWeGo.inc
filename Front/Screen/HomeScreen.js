@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 
+
+// Page qui est plutot là à titre d'exemple pour afficher juste une variable à l'écran
 export default function HomeScreen () {
-    const homescreen = "Coming soon...";
+    const homescreen = "Vous etes connecté \n\nComing soon...";
 
     return (
         <View style={styles.container}>

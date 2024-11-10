@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 
+
+
+// Page pour le test avec affichage de toute la table users
 export default function DataScreen() {
   const [users, setUsers] = useState([]);
 
@@ -11,20 +14,18 @@ export default function DataScreen() {
       .catch(error => console.error(error));
   }, []);
 
-
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Utilisateurs enregistrés</Text>
+      // FlatList.. simple et efficace pour boucler
       <FlatList
         data={users}
         keyExtractor={(item, index) => (item.id ? item.id.toString() : index.toString())}
         renderItem={({ item }) => (
           <View style={styles.userItem}>
-            <Text>Username: {item.username || 'Nom non disponible'}</Text>
-            <Text>Mail: {item.mail || 'Email non disponible'}</Text>
+            <Text>Username: {item.Username || 'Nom non disponible'}</Text>
+            <Text>Mail: {item.Mail || 'Email non disponible'}</Text>
           </View>
-
         )}
       />
     </View>
