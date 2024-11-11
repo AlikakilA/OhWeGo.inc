@@ -8,7 +8,7 @@ import MainTabs from './Navigation/MainStack.js';
 // Ici va se faire les changements entre stack et tab avec l'initialisation de la props
 // verifiant le status de la connexion
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // État de connexion
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // État de connexion
 
   return (
     <NavigationContainer>

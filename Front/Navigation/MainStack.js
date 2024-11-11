@@ -11,8 +11,16 @@ const Tab = createBottomTabNavigator();
 // nous donnant accés au deux pages ci-dessous par la route Home
 export default function MainTabs() {
   return (
-    <Tab.Navigator initialRouteName="Home">
-      <Tab.Screen name="Home" component={HomeScreen} />
+    <Tab.Navigator initialRouteName="Home"screenOptions={{ headerShown: false }}>
+      <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            tabBarLabel: 'Home',
+            // Options pour afficher la barre de navigation
+            tabBarStyle: { display: 'none' },
+          }}
+        />
       <Tab.Screen name="Data" component={DataScreen} />
     </Tab.Navigator>
   );
