@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { API_URL } from '../../config';
 
 export default function LoginScreen({ navigation, setIsLoggedIn }) { // Ajouter setIsLoggedIn comme prop
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
 
     const handleLogin = () => {
-      fetch('http://127.0.0.1:3001/api/login', {
+      fetch(`${API_URL}/api/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

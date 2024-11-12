@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { API_URL } from '../../config.js';
 
 export default function SignupScreen({ navigation, setIsLoggedIn }) {
   const [username, setUsername] = useState('');
@@ -9,7 +10,7 @@ export default function SignupScreen({ navigation, setIsLoggedIn }) {
   //fonction SignUp pour faire la requete au serveur en envoyant un Json
   // Cela va changer avec l'ajout d'un JWT pour sécuriser la connection
   const handleSignup = () => {
-    fetch('http://127.0.0.1:3001/api/signup', {
+    fetch(`${API_URL}/api/signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

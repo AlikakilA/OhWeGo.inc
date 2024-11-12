@@ -1,8 +1,8 @@
 // navigation/MainTabs.js
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '../Front/Screen/HomeScreen.js';
-import DataScreen from '../Front/Screen/DataScreen.js';
+import HomeScreen from '../Screen/HomeScreen.js';
+import DataScreen from '../Screen/DataScreen.js';
 
 const Tab = createBottomTabNavigator();
 
